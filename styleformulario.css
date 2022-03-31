@@ -1,0 +1,51 @@
+*{
+    padding: 5px;
+    font: 15px sans-serif;
+    
+}
+
+label{
+    display: flex; 
+    
+}
+
+#formulario{
+    margin: 0 600px 0 600px;
+    padding-left: 30px;
+    padding-top: 20px;
+    padding-bottom: 50px;
+    width: 100%;
+    max-width: 500px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 25px;
+    background-color: rgb(189, 231, 250);
+}
+
+input{
+    padding-right: 30px;   
+}
+
+.error{
+    color: red;
+    font: 15px sans-serif;
+}
+
+#buton:hover{
+   background-color: rgb(211, 129, 23);
+}
+
+#buton{
+    background-color: rgb(69, 100, 236);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 10px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+

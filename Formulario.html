@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="styleformulario.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+
+<body>
+    
+    <form id="formulario">
+        <div>
+            <label for="">Numero telefonico:</label>
+            <input type="number" id="telefono" placeholder="996 980 2394">
+        </div>
+        
+       <div>
+            <label for="typeemail">Email:</label>
+            <input type="email"  id="typeEmail" placeholder="correo@mail.com">
+            <p><strong>Note:</strong> If try to submit any invalid email. It will produce an error.</p>
+       </div>
+
+       <div>
+            <label for="">Username:</label>
+            <input type="text"  id="username" value="" placeholder="Carlos">
+       </div>
+
+       <div>
+            <label for="">Sexo:</label>
+            <select  name="" id="selection">
+                <option value="">Masculino</option>
+                <option value="">Femenino</option>
+            </select>
+       </div>
+
+       <div>
+            <label for="tentacles">Edad:</label>
+            <input type="number" id="edad" name="" min="0" max="100">
+       </div>
+
+       <div class="buton-enviar">
+            <input class="submit" id="buton" type="submit" onclick='return enviarFormulario()' value="Enviar">  
+       </div>
+
+       <div id="result"></div>
+             
+    </form>
+
+    
+
+
+
+
+
+
+    <script>
+    $(document).ready(function(){
+
+        const formulario = document.getElementById('formulario');
+        const inputs = document.querySelectorAll('#formulario input');
+
+        $("form").submit(function(event){
+            var usuario = /^[a-zA-Z]+$/;
+            var telefono = /^\d{10,12}$/;
+            var edad = /^\d{0,100}$/;
+            var correo =  /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+
+           
+            var usuarioValue = $("#username").val();
+            var correoValue = $("#typeEmail").val();
+            var telefonoValue = $("#telefono").val();
+            var edadValue = $("#edad").val();
+
+            
+            if(correo.test(correoValue) == false){
+        $("#result").html('<p class="error">Favor de ingresar un correo valido</p>').show().fadeOut(1000);
+            event.preventDefault();
+            }
+
+            if(usuario.test(usuarioValue) == false){
+        $("#result").html('<p class="error">Usuario incorrecto</p>').show().fadeOut(1000);
+            event.preventDefault();
+            }
+
+            if(telefono.test(telefonoValue) == false){
+        $("#result").html('<p class="error">Favor de ingresar un numero valido</p>').show().fadeOut(1000);
+            event.preventDefault();
+            }
+
+            if(edad.test(edadValue) == false){
+        $("#result").html('<p class="error">Ingrese una edad congruente</p>').show().fadeOut(1000);
+            event.preventDefault();
+            }
+
+
+        });
+
+    
+
+    });
+
+    </script>
+
+    
+</body>
+
+
+</html>
